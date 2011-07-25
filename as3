@@ -1,22 +1,10 @@
-echo 'as3 interpreter'
+#!/usr/bin/env php
+<?php
+$path 	= '/Users/cccaldas/Projects/as3-interpreter';
+$file 	= file_get_contents($argv[1]);
+$file 	= str_replace("#!/usr/bin/env as3", "", $file);
+$tmp 	= $path.'/tmp/tmp.as';
 
-fname=$1
-content=''
-  
-exec<$fname
-value=0
-while read line
-	do
-		if [ $value != 0 ]
-			then
-				content+=$line;
-				content+='\n';
-		fi
-		#echo $line
-		value=`expr $value + 1`;
-       #echo $value;
-done
-echo $content > ~/Projects/as3-interpreter/tmp/tmp.as
-~/Projects/as3-interpreter/lib/redshell ~/Projects/as3-interpreter/tmp/tmp.as
-#echo $content;
-#echo "****$value";
+file_put_contents($tmp, $file);
+echo shell_exec("$path/lib/redshell $tmp");
+?>

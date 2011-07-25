@@ -1,4 +1,4 @@
-
+#!/usr/bin/env as3
 var FileSystem = getClassByName("avmplus.FileSystem");
 
 trace("currentDirectory is", FileSystem.currentDirectory);
@@ -6,8 +6,7 @@ trace("homeDirectory is", FileSystem.homeDirectory);
 trace("rootDirectory is", FileSystem.rootDirectory);
 trace("drives are", FileSystem.drives);
 
-trace("the file hello contains ", FileSystem.read("hello"));
-trace("----------------------------");
+//trace("the file hello contains ", FileSystem.read("hello"));
 
 if( FileSystem.exists( "/some/dummy/file" ) )
 	trace("/some/dummy/file exists");
